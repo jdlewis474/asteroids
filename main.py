@@ -25,6 +25,10 @@ def main():
         screen.fill((0,0,0))
         for obj in updatable:
             obj.update(dt)
+        for asteroid in asteroids:
+            if asteroid.collides_with(player_one):
+                print("Game over!")
+                exit()
         for obj in drawable:
             obj.draw(screen)
         pygame.display.flip()
